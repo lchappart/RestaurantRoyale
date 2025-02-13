@@ -1,0 +1,1 @@
+Employee#3 : Name : Chappart, First Name : Léo, Role : Manager, Hiring Date : 2025/02/13, Salary : 1?327,32

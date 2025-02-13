@@ -1,0 +1,1 @@
+Employee#5 : Name : Ducon, First Name : $Anselme, Role : Manager, Hiring Date : 1789/07/14, Salary : 2?500,2
