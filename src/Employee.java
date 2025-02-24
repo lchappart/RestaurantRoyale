@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 
 public class Employee {
     private static int id;
@@ -14,13 +15,10 @@ public class Employee {
 
     public Employee(int restaurantId, String name, String firstName, String role, String hiringDate, double salary) {
         String template = "Employee#{0} : Name : {1}, First Name : {2}, Role : {3}, Hiring Date : {4}, Salary : {5}";
-        File employeesDirectory = new File("Restaurants/Restaurant" + restaurantId + "/Employees"); 
-        File[] listOfFiles = employeesDirectory.listFiles();
-        id = listOfFiles.length + 1;
         String content = MessageFormat.format(template, id, name, firstName, role, hiringDate, salary);
+        int id = getMaxId(restaurantId);
         String filePath = "Restaurants/Restaurant" + restaurantId + "/Employees/" + id + ".txt";
         try {
-            System.out.println("5");
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
             writer.write(content);
             writer.close();
@@ -88,5 +86,19 @@ public class Employee {
     public String toString() {
         String template = "Employee#{0} : Name : {1}, First Name : {2}, Role : {3}, Hiring Date : {4}, Salary : {5}";
         return MessageFormat.format(template, this.id, this.name, this.firstName, this.role, this.hiringDate, this.salary);
+    }
+
+    private int getMaxId(int restaurantId) {
+        File employeesDirectory = new File("Restaurants/Restaurant" + restaurantId + "/Employees"); 
+        File[] listOfFiles = employeesDirectory.listFiles();
+        String fileName;
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                fileName = listOfFiles[i].getName().split("\\.")[0];
+                ids.add(Integer.parseInt(fileName));
+            }
+        }
+        return ids.stream().mapToInt(Integer::intValue).max().getAsInt() + 1;
     }
 }

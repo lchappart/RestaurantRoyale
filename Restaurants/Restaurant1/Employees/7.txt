@@ -1,0 +1,1 @@
+Employee#0 : Name : dupuis, First Name : Ansleme, Role : Manager, Hiring Date : 1885/02/25, Salary : 2
