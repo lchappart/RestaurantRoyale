@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.io.FileWriter;
+
 public class Menu {
     int id;
     String nameOfMenu;
@@ -50,7 +51,7 @@ public class Menu {
     public void setDishes (ArrayList<Dishes> dishes) {
         this.dishes = dishes;
     }
-
+    
     public void saveMenu() {
         String template = "Menu#{0} : Name : {1}, Creation Date : {2}, Type : {3}, Dishes : {4}";
         String dishes = "";
@@ -71,6 +72,10 @@ public class Menu {
 
     public void addDish(Dishes dish) {
         this.dishes.add(dish);
+    }
+
+    public void removeDish(Dishes dish) {
+        this.dishes.remove(dish);
     }
 
     private int getMaxId(int restaurantId) {
