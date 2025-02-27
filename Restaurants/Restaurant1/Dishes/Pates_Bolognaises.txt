@@ -1,1 +1,0 @@
-Name : Pates_Bolognaises, Description : Des bonnes pasta … la bolo omg, Size : Moyen, Date of Creation : 2025/02/14, Disponibility : Disponible, Type of Dish : Italien/Gatronomique, Preparation Time in Minutes : 20, Image : ??, Ingredients : [, Pates ], Calories : 150 kcal, Special Price : 15 €, Price : 20 €

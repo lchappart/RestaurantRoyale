@@ -1,1 +1,6 @@
-Menu#1 : Name : Japonais, Creation Date : 2025/02/24, Type : japonais, Dishes : Brochettes, Riz, 
+1
+Japonais
+2025/02/24
+japonais
+Brochettes
+Riz

@@ -1,3 +1,5 @@
+package Royale;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -81,7 +83,7 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
-    } 
+    }
 
     public String toString() {
         String template = "Employee#{0} : Name : {1}, First Name : {2}, Role : {3}, Hiring Date : {4}, Salary : {5}";
@@ -89,7 +91,7 @@ public class Employee {
     }
 
     private int getMaxId(int restaurantId) {
-        File employeesDirectory = new File("Restaurants/Restaurant" + restaurantId + "/Employees"); 
+        File employeesDirectory = new File("Restaurants/Restaurant" + restaurantId + "/Employees");
         File[] listOfFiles = employeesDirectory.listFiles();
         String fileName;
         ArrayList<Integer> ids = new ArrayList<>();

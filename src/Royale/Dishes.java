@@ -1,3 +1,4 @@
+package Royale;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -14,13 +15,13 @@ public class Dishes {
     String typeOfDish;
     String preparationTimeInMinutes;
     String Image;
-    ArrayList<String> ingredients;
+    String[] ingredients;
     double calories;
     double specialPrice;
     double price;
 
-    public Dishes(int restaurantId, String name, String description, String size, String dateOfCreation, String disponibility, String typeOfDish, String preparationTimeInMinutes, String Image, ArrayList<String> ingredients, double calories, double specialPrice, double price) {
-        String template = "Name : {0}, Description : {1}, Size : {2}, Date of Creation : {3}, Disponibility : {4}, Type of Dish : {5}, Preparation Time in Minutes : {6}, Image : {7}, Ingredients : {8}, Calories : {9} kcal, Special Price : {10} €, Price : {11} €";
+    public Dishes(int restaurantId, String name, String description, String size, String dateOfCreation, String disponibility, String typeOfDish, String preparationTimeInMinutes, String Image, String[] ingredients, double calories, double specialPrice, double price) {
+        String template = "{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}\n{7}\n{8}\n{9}\n{10}\n{11}";
         String content = MessageFormat.format(template, name, description, size, dateOfCreation, disponibility, typeOfDish, preparationTimeInMinutes, Image, ingredients, calories, specialPrice, price);
         String filePath = "Restaurants/Restaurant" + restaurantId + "/Dishes/" + name + ".txt";
         try {
@@ -44,5 +45,5 @@ public class Dishes {
         this.calories = calories;
         this.specialPrice = specialPrice;
         this.price = price;
-    }    
+    }
 }

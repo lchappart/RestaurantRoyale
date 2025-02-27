@@ -1,3 +1,5 @@
+package Royale;
+
 import java.util.ArrayList;
 
 
@@ -21,6 +23,10 @@ public class Orders {
     }
 
     public void toString(int id) {
-        System.out.println("Order#" + id + " : Dishes : " + this.dishes + ", Total Price : " + this.totalPrice);
+        String dishesName = "";
+        for (int i = 0 ; i < this.dishes.size(); i++) {
+            dishesName += this.dishes.get(i).name + ", ";
+        }
+        System.out.println("Order#" + id + " : Dishes : " + dishesName + ", Total Price : " + this.totalPrice);
     }   
 }

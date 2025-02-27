@@ -1,3 +1,5 @@
+package Royale;
+
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -53,7 +55,7 @@ public class Menu {
     }
     
     public void saveMenu() {
-        String template = "Menu#{0} : Name : {1}, Creation Date : {2}, Type : {3}, Dishes : {4}";
+        String template = "{0}\n{1}\n{2}\n{3}\n{4}";
         String dishes = "";
         for (int i = 0; i < this.dishes.size(); i++) {
             dishes += this.dishes.get(i).name + ", ";
@@ -79,7 +81,7 @@ public class Menu {
     }
 
     private int getMaxId(int restaurantId) {
-    File employeesDirectory = new File("Restaurants/Restaurant" + restaurantId + "/Menu"); 
+    File employeesDirectory = new File("Restaurants/Restaurant" + restaurantId + "/Menu");
     File[] listOfFiles = employeesDirectory.listFiles();
     if (listOfFiles == null) {
         return 1;

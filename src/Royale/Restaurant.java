@@ -1,5 +1,7 @@
+package Royale;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -9,15 +11,15 @@ public class Restaurant {
     int id;
     String name;
     String address;
-    Menu menu;
+    ArrayList<Menu> menus;
     ArrayList<Orders> orders;
     ArrayList<Employee> employees; 
 
-    public Restaurant(int id, String name, String address, Menu menu, ArrayList<Orders> orders, ArrayList<Employee> employees) {
-        this.id = id;
+    public Restaurant(String name, String address,  ArrayList<Menu> menus, ArrayList<Orders> orders, ArrayList<Employee> employees) {
+        this.id = getMaxId();
         this.name = name;
         this.address = address;
-        this.menu = menu;
+        this.menus = menus;
         this.orders = orders;
         this.employees = employees;
     }
@@ -50,9 +52,9 @@ public class Restaurant {
         }
     }
 
-    public void saveOrders() {
-        String path = "Restaurants/Restaurant" + this.id + "/Orders.txt";
-        String template = "Commande#{0} : Plats : {1}, Prix : {2}";
+    public void saveOrder() {
+        String path = "Restaurants/Restaurant" + this.id + "/Orders/Orders" + this.id + ".txt";
+        String template = "{0}\n{1}\n{2}";
         String dishes = "";
         for (int i = 0; i < this.orders.size(); i++) {
             dishes = "";
@@ -92,5 +94,19 @@ public class Restaurant {
             sales += this.orders.get(i).getTotalPrice();
         }
         System.out.println("Le restaurant a fait un chiffre d'affaire de " + sales);
+    }
+
+    private int getMaxId() {
+        File employeesDirectory = new File("Restaurants");
+        File[] listOfFiles = employeesDirectory.listFiles();
+        String fileName;
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                fileName = listOfFiles[i].getName().split("t")[2];
+                ids.add(Integer.parseInt(fileName));
+            }
+        }
+        return ids.stream().mapToInt(Integer::intValue).max().orElse(0);
     }
 }
